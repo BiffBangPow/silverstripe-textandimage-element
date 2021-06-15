@@ -11,7 +11,10 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center <% if $TextPosition == 'Right' %> order-lg-1<% end_if %>">
-                <img class="image w-100" title="$Image.Title" alt="$Image.Title" src="$Image.ScaleMaxWidth(960).Link" />
+                <picture>
+                    <source type="image/webp" srcset="$Image.Format('webp').ScaleMaxWidth(675).Link">
+                    <img class="image w-100" title="$Image.Title" alt="$Image.Title" src="$Image.ScaleMaxWidth(675).Link" />
+                </picture>
             </div>
         </div>
     </div>
