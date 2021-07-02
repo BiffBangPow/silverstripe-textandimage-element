@@ -20,7 +20,7 @@
     "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
     "biffbangpow/silverstripe-textposition-extension": "^1",
     "sheadawson/silverstripe-linkable": "^2.0",
-    "tractorcow/silverstripe-image-formatter": "dev-master"
+    "tractorcow/silverstripe-image-formatter": "^1"
   },
   "autoload": {
     "psr-4": {
