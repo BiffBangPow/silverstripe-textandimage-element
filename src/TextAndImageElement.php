@@ -2,6 +2,7 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Extension\CallToActionExtension;
 use BiffBangPow\Extension\TextPositionExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use Sheadawson\Linkable\Forms\LinkField;
@@ -15,11 +16,8 @@ class TextAndImageElement extends BaseElement
      * @var string
      */
     private static $table_name = 'ElementTextAndImage';
-
     private static $singular_name = 'text and image element';
-
     private static $plural_name = 'text and image elements';
-
     private static $description = 'Displays text with an image on either the left or right';
 
     /**
@@ -29,12 +27,10 @@ class TextAndImageElement extends BaseElement
         'Text' => 'HTMLText',
     ];
 
-
     /**
      * @var array
      */
     private static $has_one = [
-        'CallToAction' => Link::class,
         'Image' => Image::class,
     ];
 
@@ -51,6 +47,7 @@ class TextAndImageElement extends BaseElement
      */
     private static $extensions = [
         TextPositionExtension::class,
+        CallToActionExtension::class
     ];
 
     /**
