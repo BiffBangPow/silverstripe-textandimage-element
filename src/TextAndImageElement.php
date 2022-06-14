@@ -9,6 +9,7 @@ use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 
 class TextAndImageElement extends BaseElement
@@ -27,6 +28,8 @@ class TextAndImageElement extends BaseElement
      */
     private static $db = [
         'Text' => 'HTMLText',
+        'ImageFirst' => 'Boolean',
+        'ImageWidthClass' => 'Varchar'
     ];
 
     /**
@@ -40,14 +43,17 @@ class TextAndImageElement extends BaseElement
      * @var array
      */
     private static $owns = [
-        'Image',
+        'Image'
     ];
+
+    private static $defaults = [
+        'ImageWidthClass' => 'half'
+    ];    
 
     /**
      * @var array
      */
     private static $extensions = [
-        TextPositionExtension::class,
         CallToActionExtension::class
     ];
 
@@ -63,7 +69,13 @@ class TextAndImageElement extends BaseElement
             [
                 UploadField::create('Image')
                     ->setAllowedFileCategories('image/supported')
-                    ->setFolderName('ContentImages')
+                    ->setFolderName('ContentImages'),
+                DropdownField::create('ImageWidthClass', 'Limit image width on larger screens', [
+                    'quarter' => '1/4 width',
+                    'half' => '1/2 width',
+                    'threequarter' => '3/4 width',
+                    'full' => 'Full width'
+                ])
             ]
         );
 
