@@ -7,7 +7,18 @@
                         <h3 class="mb-4 title">$MarkdownText.Title.RAW</h3>
                     <% end_if %>
                     <div>$Text</div>
-                    <% include Link %>
+                    <% if $CTAType != 'None' %>
+                        <div class="cta">
+                            <p>
+                                <a href="$CTALink" class="cta-link"
+                                    <% if $CTAType == 'External' %>target="_blank" rel="noopener"
+                                    <% else_if $CTAType == 'Download' %>download
+                                    <% end_if %>>
+                                    $LinkText
+                                </a>
+                            </p>
+                        </div>
+                    <% end_if %>
                 </div>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center <% if $TextPosition == 'Right' %> order-lg-1<% end_if %>">

@@ -7,6 +7,7 @@ use BiffBangPow\Extension\TextPositionExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 
@@ -19,6 +20,7 @@ class TextAndImageElement extends BaseElement
     private static $singular_name = 'text and image element';
     private static $plural_name = 'text and image elements';
     private static $description = 'Displays text with an image on either the left or right';
+    private static $inline_editable = false;
 
     /**
      * @var array
@@ -38,7 +40,6 @@ class TextAndImageElement extends BaseElement
      * @var array
      */
     private static $owns = [
-        'CallToAction',
         'Image',
     ];
 
@@ -60,10 +61,9 @@ class TextAndImageElement extends BaseElement
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                LinkField::create(
-                    'CallToActionID',
-                    'Call To Action'
-                ),
+                UploadField::create('Image')
+                    ->setAllowedFileCategories('image/supported')
+                    ->setFolderName('ContentImages')
             ]
         );
 
