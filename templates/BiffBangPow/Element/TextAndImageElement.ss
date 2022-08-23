@@ -1,19 +1,33 @@
 <div class="py-4 py-xl-7">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 d-flex align-items-center py-4 <% if $TextPosition == 'Right' %>order-lg-2<% end_if %>">
+        <div class="row<% if $ImageFirst %> imagefirst<% end_if %>">
+            <div class="py-4 textimage-text">
                 <div class="text">
                     <% if $ShowTitle %>
                         <h3 class="mb-4 title">$MarkdownText.Title.RAW</h3>
                     <% end_if %>
                     <div>$Text</div>
-                    <% include Link %>
+                    <% if $CTAType != 'None' %>
+                        <div class="cta">
+                            <p>
+                                <a href="$CTALink" class="cta-link"
+                                    <% if $CTAType == 'External' %>target="_blank" rel="noopener"
+                                    <% else_if $CTAType == 'Download' %>download
+                                    <% end_if %>>
+                                    $LinkText
+                                </a>
+                            </p>
+                        </div>
+                    <% end_if %>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 d-flex align-items-center <% if $TextPosition == 'Right' %> order-lg-1<% end_if %>">
+            <div class="textimage-image $ImageWidthClass">
                 <picture>
-                    <source type="image/webp" srcset="$Image.ScaleMaxWidth(710).Format('webp').Link">
-                    <img class="image w-100" title="$Image.Title" alt="$Image.Title" src="$Image.ScaleMaxWidth(710).Link" />
+                    <% with $Image.ScaleWidth(1000) %>
+                        <source type="image/webp" srcset="$Format('webp').URL">
+                        <img alt="$Title" class="img-fluid lazyload" src="$URL" loading="lazy" width="$Width"
+                             height="$Height">
+                    <% end_with %>
                 </picture>
             </div>
         </div>
