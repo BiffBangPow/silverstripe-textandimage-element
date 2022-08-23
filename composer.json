@@ -18,7 +18,6 @@
     "silverstripe/vendor-plugin": "^1.0",
     "silverstripe/cms": "^4",
     "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
-    "biffbangpow/silverstripe-textposition-extension": "^1",
     "tractorcow/silverstripe-image-formatter": "^1",
     "biffbangpow/silverstripe-cta-extension": "^1"
   },
