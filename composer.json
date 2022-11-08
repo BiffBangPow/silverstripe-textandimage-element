@@ -1,6 +1,6 @@
 {
-  "name": "biffbangpow/silverstripe-textandimage-element",
-  "description": "Text with image element",
+  "name": "biffbangpow/silverstripe-extensionmodule-template",
+  "description": "A basic skeleton for a Silverstripe 4 extension module",
   "type": "silverstripe-vendormodule",
   "minimum-stability": "dev",
   "license": "proprietary",
