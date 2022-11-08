@@ -1,1 +1,0 @@
-Text with image element
