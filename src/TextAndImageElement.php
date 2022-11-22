@@ -97,6 +97,6 @@ class TextAndImageElement extends BaseElement
 
     public function getSimpleClassName()
     {
-        return 'text-and-image-element';
+        return 'bbp-text-and-image-element';
     }
 }
