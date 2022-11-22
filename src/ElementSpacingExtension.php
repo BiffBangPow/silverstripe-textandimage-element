@@ -58,4 +58,16 @@ class ElementSpacingExtension extends DataExtension
             )
         ]);
     }
+
+    public function updateStyleVariant(&$style)
+    {
+        $styles = [];
+        $opts = array_keys(self::$db);
+        foreach ($opts as $opt) {
+            if ($this->owner->$opt) {
+                $styles[] = 'bbp-' . strtolower($opt);
+            }
+        }
+        $style .= implode(' ', $styles);
+    }
 }
