@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row<% if $ImageFirst %> imagefirst<% end_if %>">
-        <div class="py-4 textimage-text">
+    <div class="row<% if $ImageFirst %> flex-row-reverse<% end_if %>">
+        <div class="py-4 textimage-text col-12 col-lg flex-lg-grow">
             <div class="text">
                 <% if $ShowTitle %>
                     <h3 class="mb-4 title">$Title</h3>
@@ -9,7 +9,7 @@
                 <% if $CTAType != 'None' %>
                     <div class="cta">
                         <p>
-                            <a href="$CTALink" class="cta-link"
+                            <a href="$CTALink" class="cta-link btn btn-secondary"
                                 <% if $CTAType == 'External' %>target="_blank" rel="noopener"
                                 <% else_if $CTAType == 'Download' %>download
                                 <% end_if %>>
@@ -20,7 +20,7 @@
                 <% end_if %>
             </div>
         </div>
-        <div class="textimage-image $ImageWidthClass">
+        <div class="textimage-image col-12 $ImageWidthClass">
             <picture>
                 <% with $Image.ScaleWidth(1000) %>
                     <source type="image/webp" srcset="$Format('webp').URL">

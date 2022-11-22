@@ -23,6 +23,15 @@ class TextAndImageElement extends BaseElement
     private static $description = 'Displays text with an image on either the left or right';
     private static $inline_editable = false;
 
+    private static $width_classes = [
+        'col-lg-3' => '1/4 width',
+        'col-lg-4' => '1/3 width',
+        'col-lg-6' => '1/2 width',
+        'col-lg-8' => '2/3 width',
+        'col-lg-9' => '3/4 width',
+        'col-lg-12' => 'Full width'
+    ];
+
     /**
      * @var array
      */
@@ -48,7 +57,7 @@ class TextAndImageElement extends BaseElement
 
     private static $defaults = [
         'ImageWidthClass' => 'half'
-    ];    
+    ];
 
     /**
      * @var array
@@ -70,12 +79,8 @@ class TextAndImageElement extends BaseElement
                 UploadField::create('Image')
                     ->setAllowedFileCategories('image/supported')
                     ->setFolderName('ContentImages'),
-                DropdownField::create('ImageWidthClass', 'Limit image width on larger screens', [
-                    'quarter' => '1/4 width',
-                    'half' => '1/2 width',
-                    'threequarter' => '3/4 width',
-                    'full' => 'Full width'
-                ])
+                DropdownField::create('ImageWidthClass', 'Limit image width on larger screens',
+                    $this->config()->get('width_classes'))
             ]
         );
 
