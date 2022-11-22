@@ -56,7 +56,7 @@ class TextAndImageElement extends BaseElement
     ];
 
     private static $defaults = [
-        'ImageWidthClass' => 'half'
+        'ImageWidthClass' => 'col-lg-6'
     ];
 
     /**
