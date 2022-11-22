@@ -1,0 +1,8 @@
+---
+Name: bbp-element-spacer
+---
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - BiffBangPow\Extension\ElementSpacingExtension
+
