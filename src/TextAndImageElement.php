@@ -2,6 +2,7 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Element\Control\TextAndImageElementController;
 use BiffBangPow\Extension\CallToActionExtension;
 use BiffBangPow\Extension\TextPositionExtension;
 use DNADesign\Elemental\Models\BaseElement;
@@ -22,6 +23,8 @@ class TextAndImageElement extends BaseElement
     private static $plural_name = 'text and image elements';
     private static $description = 'Displays text with an image on either the left or right';
     private static $inline_editable = false;
+    private static $controller_class = TextAndImageElementController::class;
+
 
     private static $width_classes = [
         'col-lg-3' => '1/4 width',
