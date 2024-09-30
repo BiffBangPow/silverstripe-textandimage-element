@@ -24,7 +24,7 @@
             <picture>
                 <% with $Image.ScaleWidth(1000) %>
                     <source type="image/webp" srcset="$Format('webp').URL">
-                    <img alt="$Title" class="img-fluid lazyload" src="$URL" loading="lazy" width="$Width"
+                    <img alt="$Title" class="img-fluid" src="$URL" loading="lazy" width="$Width"
                          height="$Height">
                 <% end_with %>
             </picture>
