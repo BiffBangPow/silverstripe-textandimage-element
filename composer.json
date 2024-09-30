@@ -16,7 +16,7 @@
   ],
   "require": {
     "dnadesign/silverstripe-elemental": "*",
-    "tractorcow/silverstripe-image-formatter": "^1",
+    "tractorcow/silverstripe-image-formatter": "^2",
     "biffbangpow/silverstripe-cta-extension": "^1",
     "biffbangpow/silverstripe-element-spacing": "^1"
   },
