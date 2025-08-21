@@ -68,6 +68,6 @@ class ElementSpacingExtension extends DataExtension
                 $styles[] = 'bbp-' . strtolower($opt);
             }
         }
-        $style .= implode(' ', $styles);
+        $style .= ' ' . implode(' ', $styles);
     }
 }
