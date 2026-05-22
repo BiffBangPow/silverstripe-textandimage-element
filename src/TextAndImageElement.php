@@ -62,12 +62,6 @@ class TextAndImageElement extends BaseElement
         'ImageWidthClass' => 'col-lg-6'
     ];
 
-    /**
-     * @var array
-     */
-    private static $extensions = [
-        CallToActionExtension::class
-    ];
 
     /**
      * @return FieldList
