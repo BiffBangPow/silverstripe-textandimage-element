@@ -23,7 +23,7 @@
         <div class="textimage-image col-12 $ImageWidthClass">
             <picture>
                 <% with $Image.ScaleWidth(1000) %>
-                    <source type="image/webp" srcset="$Format('webp').URL">
+                    <source type="image/webp" srcset="$Convert('webp').URL">
                     <img alt="$Title" class="img-fluid" src="$URL" loading="lazy" width="$Width"
                          height="$Height">
                 <% end_with %>
