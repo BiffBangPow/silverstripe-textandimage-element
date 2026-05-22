@@ -25,7 +25,6 @@ class TextAndImageElement extends BaseElement
     private static $inline_editable = false;
     private static $controller_class = TextAndImageElementController::class;
 
-
     private static $width_classes = [
         'col-lg-3' => '1/4 width',
         'col-lg-4' => '1/3 width',
