@@ -6,18 +6,15 @@
                     <h2 class="element-title mb-4">$Title</h2>
                 <% end_if %>
                 <div class="mb-4">$Text</div>
-                <% if $CTAType != 'None' %>
-                    <div class="cta">
-                        <p>
-                            <a href="$CTALink" class="cta-link btn btn-outline-primary"
-                                <% if $CTAType == 'External' %>target="_blank" rel="noopener"
-                                <% else_if $CTAType == 'Download' %>download
-                                <% end_if %>>
-                                $LinkText
-                            </a>
-                        </p>
-                    </div>
-                <% end_if %>
+                <% with $CTA %>
+                    <% if $exists %>
+                        <div class="cta">
+                            <p>
+                                <a class="cta-link btn btn-primary mt-4" href="$URL" <% if $OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>$Title</a>
+                            </p>
+                        </div>
+                    <% end_if %>
+                <% end_with %>
             </div>
         </div>
         <div class="textimage-image col-12 $ImageWidthClass">

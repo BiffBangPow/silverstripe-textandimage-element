@@ -6,8 +6,8 @@ use BiffBangPow\Element\Control\TextAndImageElementController;
 use BiffBangPow\Extension\CallToActionExtension;
 use BiffBangPow\Extension\TextPositionExtension;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
@@ -48,13 +48,15 @@ class TextAndImageElement extends BaseElement
      */
     private static $has_one = [
         'Image' => Image::class,
+        'CTA' => Link::class
     ];
 
     /**
      * @var array
      */
     private static $owns = [
-        'Image'
+        'Image',
+        'CTA'
     ];
 
     private static $defaults = [
@@ -76,7 +78,8 @@ class TextAndImageElement extends BaseElement
                     ->setAllowedFileCategories('image/supported')
                     ->setFolderName('ContentImages'),
                 DropdownField::create('ImageWidthClass', 'Limit image width on larger screens',
-                    $this->config()->get('width_classes'))
+                    $this->config()->get('width_classes')),
+                LinkField::create('CTA')
             ]
         );
 
